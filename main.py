@@ -60,9 +60,11 @@ def begin(username, password):
     print('''
 <html>
 <head>
-<style>
-body{text-align:center}
-</style>
+    <style>
+        body {
+            margin: 50px;
+        }
+    </style>
 </head>
 <body>
     ''')
