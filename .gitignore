@@ -104,3 +104,4 @@ ENV/
 
 /site-packages/
 !/geckodriver.exe
+/words.html
