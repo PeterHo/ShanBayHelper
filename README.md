@@ -15,3 +15,12 @@ sudo apt-get install libpulse-dev zlib1g-dev
 sudo apt-get install python3-pip
 pip3 install textract
 ```
+
+## Install Pattern
+```
+bash
+zsh
+git clone --depth=1 -b development https://github.com/clips/pattern.git
+cd pattern
+sudo python3 setup.py install
+```
