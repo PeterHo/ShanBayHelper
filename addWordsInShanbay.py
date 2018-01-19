@@ -4,6 +4,7 @@ import requests
 import sys
 
 from selenium import webdriver
+from selenium.common.exceptions import TimeoutException
 
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
@@ -33,8 +34,12 @@ def getWordListAndGoToNextPage(driver):
     if theEnd:
         return False
 
-    WebDriverWait(driver, 10).until(
-        EC.presence_of_element_located((By.CSS_SELECTOR, ".jquery-bootstrap-pagination.pagination")))
+    try:
+        WebDriverWait(driver, 10).until(
+            EC.presence_of_element_located((By.CSS_SELECTOR, ".jquery-bootstrap-pagination.pagination")))
+    except TimeoutException:
+        theEnd = True
+        return True
 
     pagination = driver.find_element_by_css_selector(".jquery-bootstrap-pagination.pagination")
     links = pagination.find_elements_by_tag_name("a")
